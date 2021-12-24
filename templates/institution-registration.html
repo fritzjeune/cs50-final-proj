@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register - Institutions
+{% endblock %}
+
+
+{% block main %}
+    
+<div class="avatar">
+    <div class="wrapper">
+        <div class="profil_img_cont">
+            <img src="../static/fritz.jpg" alt="placeholder">
+        </div>
+        <div class="user_details">
+            <h2 class="username">{{ user["middle_name"] }} {{ user["firstname"]}} {{ user["surname"] }}</h2>
+            <p> {{ user["about_me_text"] }}</p>
+        </div>
+    </div> 
+</div>
+<div class="wrapper">
+    <div class="cards-cont student-reg-form">
+        <div class="title">
+            <h3>Institution Basic Details</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <div class="form-item">
+                    <label for="institution-type">Institution Type</label>
+                    <select name="institution-type" id="institution-type">
+                        <option value="baccalaureat">Professional</option>
+                        <option value="technique">Technic Institut</option>
+                        <option value="technique-superieur">Faculty</option>
+                        <option value="licence">Private University</option>
+                        <option value="maitrise">Govermental University</option>
+                        <option value="doctorat">Other</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="other-inst-type">Other?</label>
+                    <input type="text" name="other-inst-type" id="other-inst-type" placeholder="Enter Type">
+                </div>
+                <div class="form-item">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Oxford University">
+                </div>
+                <div class="form-item">
+                    <label for="business-name">Business Registrated Name</label>
+                    <input type="text" name="business-name" id="business-name" placeholder="Oxford foundation C.A.">
+                </div>
+                <div class="form-item">
+                    <label for="patente">Patente</label>
+                    <input type="text" name="patente" id="patente" placeholder="001-000-000-0">
+                </div>
+                <div class="form-item">
+                    <label for="menfp-id">MENFP Registration Id</label>
+                    <input type="text" name="menfp-id" id="menfp-id" placeholder="XYZ0000">
+                </div>
+                <div class="form-item">
+                    <label for="min-com-id">Ministere Commerce Id</label>
+                    <input type="text" name="min-com-id" id="min-com-id" placeholder="XZ000000">
+                </div>
+                <div class="form-item">
+                    <label for="educational-field">Educational Field</label>
+                    <input type="text" name="educational-field" id="educational-field" placeholder="Science">
+                </div>
+                <div class="form-item">
+                    <label for="specialisation">Specialisation</label>
+                    <input type="text" name="specialisation" id="specialisation" placeholder="Computer Science">
+                </div>
+                <div class="form-item">
+                    <label for="founded-year">Founded Year</label>
+                    <input type="text" name="founded-year" id="founded-year" placeholder="1912">
+                </div>
+                <div class="form-item">
+                    <p>Campus Available?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="have-camp" id="camp-true">
+                        <label for="camp-true">Yes</label>
+                        <input type="radio" name="have-camp" id="camp-false">
+                        <label for="camp-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <p>Faculties?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="have-fac" id="fac-true">
+                        <label for="fac-true">Yes</label>
+                        <input type="radio" name="have-fac" id="fac-false">
+                        <label for="fac-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="director">Actual Director</label>
+                    <input type="text" name="director" id="director" placeholder="Adams Houston">
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>        
+    </div>
+
+    <div class="cards-cont student-reg-form">
+        <div class="title">
+            <h3>Faculties</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <div class="form-item">
+                    <label for="birthday">Year</label>
+                    <input type="date" name="birthday" id="birthday">
+                </div>
+                <div class="form-item">
+                    <label for="cin">School</label>
+                    <input type="text" name="cin" id="cin" placeholder="00-00-00-0000-00-00000">
+                </div>
+                <div class="form-item">
+                    <label for="passport">City</label>
+                    <input type="text" name="passport" id="passport" placeholder="PP0000000">
+                </div>
+                <div class="form-item">
+                    <label for="birth-state">State</label>
+                    <input type="text" name="birth-state" id="birth-state" placeholder="Centre">
+                </div>
+                <div class="form-item">
+                    <label for="birth-country">Country</label>
+                    <input type="text" name="birth-country" id="birth-country" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <label for="birth-city">Badge Code</label>
+                    <input type="text" name="birth-city" id="birth-city" placeholder="Hinche">
+                </div>
+                <div class="form-item">
+                    <label for="nif">Score</label>
+                    <input type="text" name="nif" id="nif" placeholder="000-000-000-0">
+                </div>                
+                <div class="form-item">
+                    <label for="citizenship">Score Basis</label>
+                    <input type="text" name="citizenship" id="citizenship" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <p>Was it Successfull?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="is-success" id="succ-true">
+                        <label for="succ-true">Yes</label>
+                        <input type="radio" name="is-success" id="succ-false">
+                        <label for="succ-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="nif">Award Code</label>
+                    <input type="text" name="nif" id="nif" placeholder="000-000-000-0">
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>
+            
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

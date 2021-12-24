@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!-- Slideshow container -->
+    <div class="slideshow-container fade">
+        <div class="item">
+            <img src="static/free_students1.jpg" style="width:100%">
+            <div class="info">
+                <h1>Find the career that fit with you passion, your dreams, and Strenght</h1>
+                <div class="app-links">
+                    <a href="">Download App</a>
+                    <a href="">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./static/free_students2.jpg" style="width:100%">
+            <div class="info">
+                <h1>Find the career that fit with you passion, your dreams, and Strenght</h1>
+                <div class="app-links">
+                    <a href="">Download App</a>
+                    <a href="">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./static/free_students3.jpg" style="width:100%">
+            <div class="info">
+                <h1>Find the career that fit with you passion, your dreams, and Strenght</h1>
+                <div class="app-links">
+                    <a href="">Download App</a>
+                    <a href="">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./static/students3.jpg" style="width:100%">
+            <div class="info">
+                <h1>Find the career that fit with you passion, your dreams, and Strenght</h1>
+                <div class="app-links">
+                    <a href="">Download App</a>
+                    <a href="">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block Script %}
+    <script>
+        var slidePosition = 0;
+        SlideShow();
+
+        function SlideShow() {
+        var i;
+        var slides = document.getElementsByClassName("item");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slidePosition++;
+        if (slidePosition > slides.length) {slidePosition = 1}
+        slides[slidePosition-1].style.display = "block";
+        setTimeout(SlideShow, 8000); // Change image every 2 seconds
+        }
+    </script>
+{% endblock Script %}

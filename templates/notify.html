@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error {{ code }}
+{% endblock %}
+
+
+{% block main %}
+    
+    <div class="notification-box">
+        <div class="not-card">
+            <h3 class="msg-title"> ERROR {{ code }}</h3>
+            <p class="msg-body">{{ message }}</p>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

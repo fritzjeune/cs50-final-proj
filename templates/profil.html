@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ user["firstname"]}}
+{% endblock %}
+
+
+{% block main %}
+    
+    <div class="avatar">
+        <div class="wrapper">
+            <div class="profil_img_cont">
+                <img src="../static/fritz.jpg" alt="placeholder">
+            </div>
+            <div class="user_details">
+                <h2 class="username">{{ user["middle_name"] }} {{ user["firstname"]}} {{ user["surname"] }}</h2>
+                <p> {{ user["about_me_text"] }}</p>
+            </div>
+            <div class="profil-btns-cont">
+                <a href="/profil" class="floating-btn btns">Add About</a>
+                {% if user["user_type"] == "student" %}
+                    <a href="/register/student" class="floating-btn btns">Complete Student Profil</a>
+                {% else %}
+                    <a href="/register/institution" class="floating-btn btns">Add Institution</a>
+                {% endif %}
+            </div>
+        </div> 
+    </div>
+    <div class="wrapper">
+        <div class="cards-cont">
+            <div class="mini-cards">
+                <div class="title">
+                    <h3>Personals Informations</h3>
+                </div>
+                <div class="mini-card-body">
+                    <div class="perso-info">
+                        <p>Status:</p> 
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>Studied in:</p> 
+                        <p>Lycee De Mirebalais</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>USername:</p> 
+                        <p>{{ user["username"] }}</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Graduated:</p>
+                        <p>Not Available</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Hobbies:</p> 
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Religion:</p>
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <!-- <div class="perso-info">
+                        <p>City:</p>
+                        <p>Not Available</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>Country:</p>
+                        <p>not Available</p>
+                    </div> -->
+                    <div class="mini-card-foot">
+                        <button class="btns" >Update personal Infos</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-cards">
+                <div class="title">
+                    <h3>Contacts Informations</h3>
+                </div>
+                <div class="mini-card-body">
+                    <div class="perso-info">
+                        <p>Status:</p> 
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>Studied in:</p> 
+                        <p>Lycee De Mirebalais</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>USername:</p> 
+                        <p>{{ user["username"] }}</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Graduated:</p>
+                        <p>Not Available</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Hobbies:</p> 
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <div class="perso-info">
+                        <p> Religion:</p>
+                        <p>looking for Scholarship</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>City:</p>
+                        <p>Not Available</p>
+                    </div>
+                    <div class="perso-info">
+                        <p>Country:</p>
+                        <p>not Available</p>
+                    </div>
+                    <div class="mini-card-foot">
+                        <button class="btns" >Update Contacts Infos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

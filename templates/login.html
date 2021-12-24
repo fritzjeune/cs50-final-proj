@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block main %}
+<div class="wrapper">
+    <div class="outer-log-cont">
+    <div class="log-forms">
+        <div class="signin-cont">
+            <h3 class="section-title">Register</h3>
+            <form action="/signup" method="post">
+                <div class="form-item">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Alzander">
+                </div>
+                <div class="form-item">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="rg-email" placeholder="myemail@email.com">
+                </div>
+                <div class="form-item">
+                    <label for="surmane">Surname</label>
+                    <input type="text" name="surname" id="surname" placeholder="Alexander">
+                </div>
+                <div class="form-item">
+                    <label for="middle-name">Middle Name</label>
+                    <input type="text" name="middle-name" id="middle-name" placeholder="Jhon">
+                </div>
+                <div class="form-item">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name" id="first-name" placeholder="Aldolfo">
+                </div>
+                <div class="form-item">
+                    <label for="Education Level">User Activity</label>
+                    <select name="account-type" id="account-type">
+                        <option value="student">Student</option>
+                        <option value="institution-educative">Institution</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="rg-password" placeholder="8 digits min">
+                </div>
+                <div class="form-item">
+                    <label for="conf-password">Confirm Password</label>
+                    <input type="password" name="conf-password" id="conf-password">
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Sign Up</button>
+                </div>
+                <div class="form-item">
+                    <a href="/password" class="forgot">Forgot password?</a>
+                    <p class="log-warning">Already have an Account , please <span class="btn" id="btn-login">login</span> instead</p>
+                </div>    
+            </form>
+        </div>
+        <div class="login-cont">
+            <h3 class="section-title">Log in</h3>
+            <form action="/login" method="post">
+                <div class="form-item">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="myemail@email.com">
+                </div>
+                <div class="form-item">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="8 digits min">
+                </div>
+                <input type="hidden" value="{{ request.args.get('next', '') }}"/>
+                <div class="submit-cont">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="form-item">
+                    <a href="/password" class="forgot">Forgot password?</a>
+                    <h4 class="log-warning">Don't have an Account , please <span class="btn" id="btn-register">Register</span> instead</h4>
+                </div>    
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+        let btnLog = document.querySelector("#btn-login");
+        let btnReg = document.querySelector("#btn-register");
+        let logsContainer = document.querySelector(".log-forms");
+
+        btnReg.addEventListener("click", ()=> {
+        logsContainer.classList.remove("form-letf")
+        });
+
+        btnLog.addEventListener("click", ()=> {
+        logsContainer.classList.add("form-letf")
+        });
+    </script>
+{% endblock Script %}

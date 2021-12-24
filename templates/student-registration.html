@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register - Students
+{% endblock %}
+
+
+{% block main %}
+    
+<div class="avatar">
+    <div class="wrapper">
+        <div class="profil_img_cont">
+            <img src="../static/fritz.jpg" alt="placeholder">
+        </div>
+        <div class="user_details">
+            <h2 class="username">{{ user["middle_name"] }} {{ user["firstname"]}} {{ user["surname"] }}</h2>
+            <p> {{ user["about_me_text"] }}</p>
+        </div>
+    </div> 
+</div>
+<div class="wrapper">
+    <div class="cards-cont student-reg-form">
+        <div class="title">
+            <h3>Personals Informations</h3>
+        </div>
+        <div class="form-box">
+            <form action="/register/student" method="post">
+                <div class="form-item">
+                    <label for="nif">NIF</label>
+                    <input type="text" name="nif" id="nif" placeholder="000-000-000-0">
+                </div>
+                <div class="form-item">
+                    <label for="cin">CIN</label>
+                    <input type="text" name="cin" id="cin" placeholder="00-00-00-0000-00-00000">
+                </div>
+                <div class="form-item">
+                    <label for="passport">Passport</label>
+                    <input type="text" name="passport" id="passport" placeholder="PP0000000">
+                </div>
+                <div class="form-item">
+                    <label for="birthday">Birthday</label>
+                    <input type="date" name="birthday" id="birthday">
+                </div>
+                <div class="form-item">
+                    <label for="birth-city">Birth City</label>
+                    <input type="text" name="birth-city" id="birth-city" placeholder="Hinche">
+                </div>
+                <div class="form-item">
+                    <label for="birth-state">State</label>
+                    <input type="text" name="birth-state" id="birth-state" placeholder="Centre">
+                </div>
+                <div class="form-item">
+                    <label for="birth-country">Country</label>
+                    <input type="text" name="birth-country" id="birth-country" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <label for="citizenship">Citizenship</label>
+                    <input type="text" name="citizenship" id="citizenship" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <label for="Education Level">Education Level</label>
+                    <select name="education-level" id="education-level">
+                        <option value="baccalaureat">Baccalaureat</option>
+                        <option value="technique">Technique</option>
+                        <option value="technique-superieur">Technique Superieur</option>
+                        <option value="licence">Licence</option>
+                        <option value="maitrise">Maitrise</option>
+                        <option value="doctorat">Doctorat</option>
+                    </select>
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>        
+    </div>
+
+    <div class="cards-cont student-reg-form">
+        <div class="title">
+            <h3>Baccalaureat</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <div class="form-item">
+                    <label for="birthday">Year</label>
+                    <input type="date" name="birthday" id="birthday">
+                </div>
+                <div class="form-item">
+                    <label for="cin">School</label>
+                    <input type="text" name="cin" id="cin" placeholder="00-00-00-0000-00-00000">
+                </div>
+                <div class="form-item">
+                    <label for="passport">City</label>
+                    <input type="text" name="passport" id="passport" placeholder="PP0000000">
+                </div>
+                <div class="form-item">
+                    <label for="birth-state">State</label>
+                    <input type="text" name="birth-state" id="birth-state" placeholder="Centre">
+                </div>
+                <div class="form-item">
+                    <label for="birth-country">Country</label>
+                    <input type="text" name="birth-country" id="birth-country" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <label for="birth-city">Badge Code</label>
+                    <input type="text" name="birth-city" id="birth-city" placeholder="Hinche">
+                </div>
+                <div class="form-item">
+                    <label for="nif">Score</label>
+                    <input type="text" name="nif" id="nif" placeholder="000-000-000-0">
+                </div>                
+                <div class="form-item">
+                    <label for="citizenship">Score Basis</label>
+                    <input type="text" name="citizenship" id="citizenship" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <p>Was it Successfull?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="is-success" id="succ-true">
+                        <label for="succ-true">Yes</label>
+                        <input type="radio" name="is-success" id="succ-false">
+                        <label for="succ-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="nif">Award Code</label>
+                    <input type="text" name="nif" id="nif" placeholder="000-000-000-0">
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>
+            
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}
