@@ -1,0 +1,69 @@
+{% extends "profil-template.html" %}
+
+{% block title %}
+    {{ user["firstname"]}}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="cards-cont student-reg-form" id="faculty-form">
+        <div class="title">
+            <h3>Faculties</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-item">
+                    <label for="fac-name">Faculty Name</label>
+                    <input type="text" name="fac-name" id="fac-name" placeholder="Faculty of Sciences">
+                </div>
+                <div class="form-item">
+                    <label for="fac-edu-field">Educative field</label>
+                    <input type="text" name="fac-edu-field" id="fac-edu-field" placeholder="Technologies">
+                </div>
+                <div class="form-item">
+                    <label for="fac-found-year">Founded Year</label>
+                    <input type="number" name="fac-found-year" id="fac-found-year" placeholder="1918" min="1900" max="2030">
+                </div>
+                <div class="form-item">
+                    <label for="career-session">Actual Rector</label>
+                    <input type="text" name="career-session" id="career-session" placeholder="Fritz Admas">
+                </div>
+                <div class="form-item">
+                    <p>Campus Available?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="fac-have-camp" id="fac-camp-true">
+                        <label for="fac-camp-true">Yes</label>
+                        <input type="radio" name="fac-have-camp" id="fac-camp-false">
+                        <label for="fac-camp-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <p>is Address same as University?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="is-add-same" id="add-same-true">
+                        <label for="add-same-true">Yes</label>
+                        <input type="radio" name="is-add-same" id="add-same-false">
+                        <label for="add-same-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <a href="" id="add-fac-addr">Add Address</a>
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>
+            
+    </div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

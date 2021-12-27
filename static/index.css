@@ -21,7 +21,7 @@ a {
     --font-two: 'Corinthia', cursive;
     --primary-yellow: #f0cf60;
     --card-bg-yellow: #fbc23e42;
-    --card-bg-blue: #005ca842;
+    --card-bg-blue: #005ca85d;
     --second-yellow: #fbc23e;
     --second-blue: #005ba8;
     --primary-blue: #003468;
@@ -35,7 +35,7 @@ header {
 .wrapper {
     width: 100%;
     min-width: 350px;
-    padding: 0 10px;
+    padding: 20px 10px;
     position: relative;
     
 }
@@ -270,6 +270,11 @@ form {
     justify-content: center;
 }
 
+.form-item > * {
+    width: 275px;
+    font-family: var(--font-one);
+}
+
 form > div.form-item {
     font-family: var(--font-one);
     display: flex;
@@ -286,7 +291,7 @@ form > div.form-item > input {
     border-radius: 5px;
 }
 
-input[type="date"], select {
+input[type="date"], input[type="number"], input[type="file"], select {
     width: 275px;
     background-color: white;
 }
@@ -309,11 +314,13 @@ input[type="radio"] {
     width: 25px;
 }
 
+textarea {
+    font-size: 1rem;
+}
+
 .submit-cont {
     width: 100%;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: flex-end; */
+    /* display: flex; */
 }
 
 button[type="submit"], .btns {
@@ -340,6 +347,10 @@ span.btn {
 
 .form-letf {
     transform: translateX(-100%);
+}
+
+.hide-form-cont {
+    display: none;
 }
 
 /* profil styles */
@@ -390,6 +401,34 @@ span.btn {
     padding: 10px 0;
 }
 
+.indicator {
+    width: 100vw;
+    height: 50px;
+    background-color: var(--card-bg-blue);
+    display: none;
+}
+
+.indicator > div {
+    margin: auto;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.indicator > div > a {
+    padding: 13px;
+    height: 100%;
+    font-family: var(--font-one);
+    color: var(--primary-blue);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.indicator > div > a:hover {
+    color: var(--primary-yellow);
+    background-color: var(--primary-blue);
+}
+
 /* notifications messages styles */
 
 .notification-box {
@@ -420,7 +459,7 @@ span.btn {
 
 .cards-cont {
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -438,9 +477,11 @@ span.btn {
     border-radius: 10px;
     background-color: var(--card-bg-yellow);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.mini-cards > .title, .cards-cont > .title {
+.univ-card > .title, .cards-cont > .title {
     width: 100%;
     height: 100px;
     font-family: var(--font-one);
@@ -474,11 +515,118 @@ span.btn {
 
 }
 
+/* modal for img upload or file upload */
+
+.modal-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg-blue);
+    z-index: 50;
+    display: none;
+}
+
+.form-modal-cont {
+    width: 85vw;
+    max-width: 500px;
+    height: 300px;
+    background-color: var(--primary-yellow);
+    color: var(--primary-blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-modal > .form-modal-cont > form > div > button {
+    background-color: var(--primary-blue);
+    color: var(--primary-yellow);
+}
+
+.inner-modal > .form-modal-cont > form > div > button:hover {
+    background-color: var(--primary-yellow);
+    color: var(--primary-blue);
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-modal-show {
+    display: flex;
+}
 /* students registrations */
 
 .student-reg-form {
     background-color: var(--card-bg-yellow);
     margin: 30px auto;
+    transition: 1s ease-in-out;
+}
+
+/* list of university styles  */
+
+.univ-card {
+    width: 95%;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 20px auto;
+    background-color: var(--card-bg-yellow);
+}
+
+.univ-img {
+    width: 100%;
+    height: 300px;
+    
+}
+
+.univ-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title-box > h3 {
+    font-size: 2rem;
+    font-family: var(--font-one);
+    text-align: center;
+    color:var(--primary-blue)
+}
+
+.univ-details > div {
+    padding: 10px 20px;
+    color: var(--primary-blue);
+}
+
+.univ-details > div > p {
+    font-size: 1.2rem;
+    font-family: var(--font-one);
+}
+
+.details {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.details > div {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
 }
 
 /*for bigger screen, i start by mobil first*/
@@ -533,6 +681,15 @@ span.btn {
 
     #open-nav-btn {
         display: none;
+    }
+
+    .indicator {
+        display: block;
+    }
+
+    .univ-card {
+        max-width: 1000px;
+        display: flex;
     }
 
 }

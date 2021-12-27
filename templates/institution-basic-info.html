@@ -1,0 +1,160 @@
+{% extends "profil-template.html" %}
+
+{% block username %}
+    Register - Institutions
+{% endblock %}
+
+
+{% block content %}
+    <div class="cards-cont student-reg-form" id="basis-inst-form">
+        <div class="title">
+            <h3>Institution Basic Details</h3>
+        </div>
+        <div class="form-box">
+            <form action="/register/institution" method="post" id="basic-info-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-item">
+                    <label for="institution-type">Institution Type</label>
+                    <select name="institution-type" id="institution-type">
+                        <option value="" disabled>Choose</option>
+                        <option value="professional">Professional</option>
+                        <option value="technic-institution">Technic Institut</option>
+                        <option value="faculty">Faculty</option>
+                        <option value="private-university">University</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="institution-owner">Institution Ownership</label>
+                    <select name="institution-owner" id="institution-owner">
+                        <option value="" disabled>Choose</option>
+                        <option value="governmental">Governmental</option>
+                        <option value="congreganist">Congreganist</option>
+                        <option value="private">Private</option>
+                        <option value="ong">ONG</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="other-inst-type">Other?</label>
+                    <input type="text" name="other-inst-type" id="other-inst-type" placeholder="Enter Type">
+                </div>
+                <div class="form-item">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Oxford University">
+                </div>
+                <div class="form-item">
+                    <label for="business-name">Business Registrated Name</label>
+                    <input type="text" name="business-name" id="business-name" placeholder="Oxford foundation C.A.">
+                </div>
+                <div class="form-item">
+                    <label for="patente">Patente</label>
+                    <input type="text" name="patente" id="patente" placeholder="001-000-000-0">
+                </div>
+                <div class="form-item">
+                    <label for="menfp-id">MENFP Registration Id</label>
+                    <input type="text" name="menfp-id" id="menfp-id" placeholder="XYZ0000">
+                </div>
+                <div class="form-item">
+                    <label for="min-com-id">Ministere Commerce Id</label>
+                    <input type="text" name="min-com-id" id="min-com-id" placeholder="XZ000000">
+                </div>
+                <div class="form-item">
+                    <label for="educational-field">Educational Field</label>
+                    <input type="text" name="educational-field" id="educational-field" placeholder="Science">
+                </div>
+                <div class="form-item">
+                    <label for="specialisation">Specialisation</label>
+                    <input type="text" name="specialisation" id="specialisation" placeholder="Computer Science">
+                </div>
+                <div class="form-item">
+                    <label for="founded-year">Founded Year</label>
+                    <input type="text" name="founded-year" id="founded-year" placeholder="1912">
+                </div>
+                <div class="form-item">
+                    <label for="director">Actual Director</label>
+                    <input type="text" name="director" id="director" placeholder="Adams Houston">
+                </div>
+                <div class="form-item">
+                    <p>Campus Available?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="have-camp" id="camp-true" required >
+                        <label for="camp-true">Yes</label>
+                        <input type="radio" name="have-camp" id="camp-false">
+                        <label for="camp-false">No</label>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <p>Faculties?</p>
+                    <div class="radio-box">
+                        <input type="radio" name="have-fac" id="fac-true" required>
+                        <label for="fac-true">Yes</label>
+                        <input type="radio" name="have-fac" id="fac-false">
+                        <label for="fac-false">No</label>
+                    </div>
+                </div>
+                <div class="submit-cont">
+                    <button type="submit" id="btn-basic-next">Create Institution</button>
+                </div>
+                
+            </form>
+        </div>        
+    </div>
+    
+{% endblock %}
+
+{% block Script %}
+    <!-- <script>
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        let btn = $("#btn-basic-next");
+        var csrf_token = "{{ csrf_token() }}";
+        let cookie = document.cookie
+
+        // console.log(csrf_token)
+
+        function sendHTTPRequest(url, method, data) {
+            // console.log(data.values());
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cookie': cookie,
+                    'X-CSRFToken': csrf_token,
+                    'csrf_access_token' : getCookie("csrf_access_token"),
+                    'Sec-Fetch-Site': 'cross-site'
+                }
+            }).then(response => {
+                return response.json();
+            });
+        }
+
+        async function postData(data) {
+            let response = await sendHTTPRequest(
+                "/register/institution", 
+                "post", 
+                data
+            );
+            if (response.success == false) {
+                Alert("Something went wrong in your submission!, please check your entries.")
+            } else {
+
+            }
+        }
+
+        btn.on("click", (event) => {
+            event.preventDefault();  
+            let data = new FormData(document.querySelector('#basic-info-form')).entries()
+            const formData = Object.assign(...Array.from(data, ([name, value]) => ({[name]: value})));
+            btn.closest(".cards-cont").addClass("hide-form-cont");
+            btn.closest(".cards-cont").next(".cards-cont").removeClass("hide-form-cont")
+            postData(formData)
+        });
+
+    </script> -->
+{% endblock Script %}

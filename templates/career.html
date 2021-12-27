@@ -1,0 +1,82 @@
+{% extends "profil-template.html" %}
+
+{% block title %}
+    {{ user["firstname"]}}
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="cards-cont student-reg-form" id="faculty-form">
+        <div class="title">
+            <h3>Add Carreers</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-item">
+                    <label for="career-title">Career Title</label>
+                    <input type="date" name="career-title" id="career-title">
+                </div>
+                <div class="form-item">
+                    <label for="cin">Educative field</label>
+                    <input type="text" name="cin" id="cin" placeholder="00-00-00-0000-00-00000">
+                </div>
+                <div class="form-item">
+                    <label for="career-duration">Duration</label>
+                    <input type="number" name="career-duration" id="career-duration" placeholder="48 Month" min="1" max="72">
+                </div>
+                <div class="form-item">
+                    <label for="career-session">Number of Sessions</label>
+                    <input type="number" name="career-session" id="career-session" placeholder="14" min="1" max="18">
+                </div>
+                <div class="form-item">
+                    <label for="career-credit">Number of Credit</label>
+                    <input type="number" name="career-credit" id="career-credit" placeholder="140" min="1">
+                </div>
+                <div class="form-item">
+                    <label for="career-award">Award</label>
+                    <select name="institution-type" id="career-award">
+                        <option value="certificat">Certificat</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="prof-certificat">Professional Certificat</option>
+                        <option value="certification">Certification</option>
+                        <option value="licence">Licence</option>
+                        <option value="master">Master</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="career-cost">Session Cost</label>
+                    <input type="number" name="career-cost" id="career-cost" placeholder="1400">
+                </div>
+                <div class="form-item">
+                    <label for="career-pay-meth">Payment Methods</label>
+                    <select name="institution-type" id="career-pay-meth">
+                        <option value="month">Monthly</option>
+                        <option value="session">Session</option>
+                        <option value="complete-year">Full Year</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="career-cost">Description</label>
+                    <textarea name="career-descript" id="career-descript" cols="50" rows="5"></textarea>
+                </div>
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>
+            
+    </div>
+
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

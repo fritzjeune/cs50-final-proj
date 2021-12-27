@@ -1,36 +1,24 @@
-{% extends "layout.html" %}
+{% extends "profil-template.html" %}
 
-{% block title %}
+{% block username %}
     {{ user["firstname"]}}
 {% endblock %}
 
+    {% block profil_button %}
+        {% if user["user_type"] == "student" %}
+            <a href="/register/student" class="floating-btn btns">Complete Student Profil</a>
+        {% else %}
+            <a href="/register/institution" class="floating-btn btns">Add Institution</a>
+        {% endif %} 
+    {% endblock %}
 
-{% block main %}
-    
-    <div class="avatar">
-        <div class="wrapper">
-            <div class="profil_img_cont">
-                <img src="../static/fritz.jpg" alt="placeholder">
-            </div>
-            <div class="user_details">
-                <h2 class="username">{{ user["middle_name"] }} {{ user["firstname"]}} {{ user["surname"] }}</h2>
-                <p> {{ user["about_me_text"] }}</p>
-            </div>
-            <div class="profil-btns-cont">
-                <a href="/profil" class="floating-btn btns">Add About</a>
-                {% if user["user_type"] == "student" %}
-                    <a href="/register/student" class="floating-btn btns">Complete Student Profil</a>
-                {% else %}
-                    <a href="/register/institution" class="floating-btn btns">Add Institution</a>
-                {% endif %}
-            </div>
-        </div> 
-    </div>
+{% block content %}
+
     <div class="wrapper">
         <div class="cards-cont">
-            <div class="mini-cards">
+            <div class="univ-card mini-cards">
                 <div class="title">
-                    <h3>Personals Informations</h3>
+                    <h3>Basics Informations</h3>
                 </div>
                 <div class="mini-card-body">
                     <div class="perso-info">
@@ -70,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mini-cards">
+            <div class="univ-card mini-cards">
                 <div class="title">
                     <h3>Contacts Informations</h3>
                 </div>
@@ -113,12 +101,134 @@
                 </div>
             </div>
         </div>
+        <div class="univ-card">
+            <div class="univ-img">
+                <img src="./static/students1.jpg" alt="" srcset="">
+            </div>
+            <div>
+                <div class="title-box">
+                    <!-- {{ profil_details[0]["name"]}} -->
+                    <h3 class="univ-title">Havard University</h3>
+                </div>
+                <div class="univ-details">
+                    <div class="univ-description">
+                        <p class="descrip">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
+                            recusandae corrupti obcaecati beatae, optio fuga quaerat facere nostrum, atque, dolore
+                            voluptatibus iste necessitatibus autem nam ex ipsam. Excepturi, quasi ...</p>
+                        <div class="details">
+                            <div>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt"
+                                    class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                    <path fill="currentColor"
+                                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+                                    </path>
+                                </svg>
+                                <p>Mirebalais, Haiti</p>
+                            </div>
+                            <div>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="university"
+                                    class="svg-inline--fa fa-university fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z">
+                                    </path>
+                                </svg>
+                                <p>Campus Avail.</p>
+                            </div>
+                            <div>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book"
+                                    class="svg-inline--fa fa-book fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z">
+                                    </path>
+                                </svg>
+                                <p>Sciences</p>
+                            </div>
+                            <div>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bullseye"
+                                    class="svg-inline--fa fa-bullseye fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                    <path fill="currentColor"
+                                        d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 432c-101.69 0-184-82.29-184-184 0-101.69 82.29-184 184-184 101.69 0 184 82.29 184 184 0 101.69-82.29 184-184 184zm0-312c-70.69 0-128 57.31-128 128s57.31 128 128 128 128-57.31 128-128-57.31-128-128-128zm0 192c-35.29 0-64-28.71-64-64s28.71-64 64-64 64 28.71 64 64-28.71 64-64 64z">
+                                    </path>
+                                </svg>
+                                <p>Computer Sciences</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
 {% endblock %}
 
 {% block Script %}
     <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        let btn = $("#btn-basic-next");
+        var csrf_token = "{{ csrf_token() }}";
+        let cookie = document.cookie
 
+        // console.log(csrf_token)
+
+        function sendHTTPRequest(url, method, data) {
+            // console.log(data.values());
+            return fetch(url, {
+                method: method,
+                body: data,
+                headers: {
+                    'enctype': 'multipart/form-data',
+                    'Cookie': cookie,
+                    'X-CSRFToken': csrf_token,
+                    'csrf_access_token' : getCookie("csrf_access_token"),
+                    'Sec-Fetch-Site': 'cross-site'
+                }
+            }).then(response => {
+                return response.json();
+            });
+        }
+
+        async function postData(data, id) {
+            let response = await sendHTTPRequest(
+                "/upload/profil/" + id, 
+                "post", 
+                data
+            );
+            if (response.success == false) {
+                alert("Something went wrong in your submission!, please check your entries.")
+            } else {
+                alert("it s ok")
+                $("#modal-upload").removeClass("upload-modal-show")
+            }
+        }
+
+
+        $(".profil_img_cont").on("click", (e) => {
+            $("#modal-upload").addClass("upload-modal-show")
+        })
+
+        $("#upload-cancel").on("click", (e) => {
+            $("#modal-upload").removeClass("upload-modal-show")
+        })
+
+        $("#submit-upload").on("click", (evt) => {
+            evt.preventDefault();
+            let data = new FormData(document.querySelector('#file-form-upload'));
+            data.append('file', $('input[type=file]')[0].files[0]);
+            // .entries()
+            // const formData = Object.assign(...Array.from(data, ([name, value]) => ({[name]: value})));
+            // console.log($('input[type=file]')[0].files[0])
+            let id = $(evt.target).attr("user");
+
+            postData(data, id)
+        })
     </script>
 {% endblock Script %}

@@ -1,0 +1,64 @@
+{% extends "profil-template.html" %}
+
+{% block title %}
+    {{ user["firstname"]}}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="cards-cont student-reg-form" id="contacts">
+        <div class="title">
+            <h3>Contacts</h3>
+        </div>
+        <div class="form-box">
+            <form action="/student-registration" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-item">
+                    <label for="addr-apt">Apt</label>
+                    <input type="number" name="addr-apt" id="addr-apt" min="1980" max="Apt 5">
+                </div>
+                <div class="form-item">
+                    <label for="addr-street">Street</label>
+                    <input type="text" name="addr-street" id="addr-street" placeholder="Blv Jn Jacques Dessalines">
+                </div>
+                <div class="form-item">
+                    <label for="bac-city">City</label>
+                    <input type="text" name="bac-city" id="bac-city" placeholder="Mirebalais">
+                </div>
+                <div class="form-item">
+                    <label for="bac-state">State</label>
+                    <input type="text" name="bac-state" id="bac-state" placeholder="Centre">
+                </div>
+                <div class="form-item">
+                    <label for="bac-country">Country</label>
+                    <input type="text" name="bac-country" id="bac-country" placeholder="Haiti">
+                </div>
+                <div class="form-item">
+                    <label for="zip-code">Zip Code</label>
+                    <input type="text" name="zip-code" id="zip-code" placeholder="HT5210">
+                </div> 
+                <div class="form-item">
+                    <label for="badge-code">Phone</label>
+                    <input type="text" name="badge-code" id="badge-code" placeholder="+000-0000-0000">
+                </div>
+                <div class="form-item">
+                    <label for="bac-score">Other</label>
+                    <input type="text" name="bac-score" id="bac-score" placeholder="Some other details">
+                </div>                
+                <div class="submit-cont">
+                    <button type="submit">Next</button>
+                </div>
+                
+            </form>
+        </div>
+            
+    </div>
+    
+{% endblock %}
+
+{% block Script %}
+    <script>
+
+    </script>
+{% endblock Script %}

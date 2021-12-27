@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% block username %} {% endblock %}
+{% endblock %}
+
+{% block main %}
+    <div class="avatar">
+        <div class="wrapper">
+            <div class="profil_img_cont" id="{{ user['id'] }}">
+                <img src="../static/imgs/{{ user['img_path'] }}" alt="placeholder">
+            </div>
+            <div class="user_details">
+                {% if not row_count or not row_count > 0 %}
+                    <h2 class="username">{{ user["middle_name"] }} {{ user["firstname"]}} {{ user["surname"] }}</h2>
+                    <p> {{ user["about_me_text"] }}</p>
+                {% else %}
+                    <h2 class="username">{{ profil_details[0]["name"] }}</h2>
+                    <p> {{ profil_details[0]["description"] }}</p>
+                {% endif %}         
+            </div>
+            <div class="profil-btns-cont">
+                <!-- <a href="/profil" class="floating-btn btns">Add About</a> -->
+                {% block profil_button %} {% endblock %}
+
+            </div>
+        </div> 
+    </div>
+    <div class="modal-outer" id="modal-upload">
+        <div class="inner-modal">
+            <div class="form-modal-cont">
+                <form action="" method="post" enctype="multipart/form-data" id="file-form-upload">
+                    <div class="form-item">
+                        <label for="img-upload">Choose your File:</label>
+                        <input type="file" name="img-upload" id="img-upload">                        
+                    </div>
+                    <div class="submit-cont btn-box">
+                        <button type="reset" class="btns" id="upload-cancel">Cancel</button>
+                        <button type="submit" id="submit-upload" user="{{ user['id'] }}">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        {% block content %} 
+
+        {% endblock %}
+    </div>
+
+{% endblock %}
+
+{% block Script %}
+
+{% endblock Script %}
